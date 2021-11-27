@@ -1,0 +1,9 @@
+
+
+.li-hover{
+    transition: padding-bottom 2s, transform 700ms;
+}
+
+.li-hover:hover{
+    transform: translateY(5px);
+}
