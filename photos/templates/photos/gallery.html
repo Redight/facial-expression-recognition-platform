@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    <link rel="stylesheet" href="{% static 'css/gallery.css' %}}">
+    <link rel="stylesheet" href="{% static '/css/gallery.css' %}">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -19,13 +19,6 @@
             
         }        
 
-        .li-hover{
-            transition: padding-bottom 2s, transform 700ms;
-        }
-
-        .li-hover:hover{
-            transform: translateY(-5px);
-        }
         .list-group-item a{
             text-decoration: none;
             color: black;
@@ -45,16 +38,10 @@
                     </div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <a href="{% url 'gallery' %}">
+                        <a href="{% url 'gallery' %}" class="btn btn-light">
                             All
                         </a>
                     </li>
-                    {% for emotion in emotions %}
-                        <li class="list-group-item">
-                            <a href="{% url 'gallery' %}?emotion={{emotion.name}}" class="list-group-item btn-outline-dark">{{ emotion.name }}</a>
-                        </li>    
-                    
-                    {% endfor %}
                     <a href="{% url 'add' %}" class="btn btn-dark btn-block btn-sm m-1">Add Photo</a>
                   </ul>
                 </div>
@@ -63,13 +50,13 @@
                 <div class="row">
 
                     {% for photo in photos %}
-                        {% if photo.emotion.name is not empty %}
+                        {% if photo.emotion is not empty %}
                             <div class="col-md-4 li-hover">
                                 <div class="card my-2">
                                 <img class="image-thumbnail" src="{{ photo.image.url }}" alt="Card image cap">
 
                                     <div class="card-body">
-                                    <small class="btn btn-dark">{{ photo.emotion.name }}</small>
+                                    <small class="btn btn-dark">{{ photo.emotion }}</small>
                                 </div>
                                 <a href="{% url 'photo' photo.id  %}" class="btn btn-outline-dark btn-sm m-1">View</a>
                                 </div>

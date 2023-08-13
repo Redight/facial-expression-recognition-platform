@@ -1,9 +1,18 @@
 
-
 .li-hover{
     transition: padding-bottom 2s, transform 700ms;
 }
 
 .li-hover:hover{
-    transform: translateY(5px);
+    transform: translateY(-5px);
+}
+
+.image-thumbnail{
+    height: 200px;
+    
+}        
+
+.list-group-item a{
+    text-decoration: none;
+    color: black;
 }

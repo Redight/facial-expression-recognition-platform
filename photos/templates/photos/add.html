@@ -16,15 +16,11 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <a href="{% url 'gallery' %}" class="btn btn-dark my-3">Go Back</a>
+                <a href="{% url 'home' %}" class="btn btn-dark my-3">Go Back</a>
 
                 <div class="card p-3">
                     <form method="POST" action="" enctype="multipart/form-data">
                       {% csrf_token %}
-                      <div class="form-group p-3">
-                        <label>Description</label>
-                        <input required name="description" type="text" placeholder="Enter a description" class="form-control">
-                      </div>
 
                       <div class="form-group p-3">
                           <label>Select an emotion</label>
@@ -37,15 +33,9 @@
                               
                           </select>
                       </div>
-
-                      <div class="form-group p-3">
-                        <label>Create a new emotion</label>
-                        <input name="emotion_new" type="text" placeholder="Create an emotion" class="form-control">
-                      </div>
-
                       <div class="form-group p-3">
                         <label>Upload Image</label>
-                        <input required name="image" type="file" class="form-control-file">
+                        <input required name="images" type="file" multiple class="form-control-file">
                       </div>
 
                         <div class="row justify-content-center">
